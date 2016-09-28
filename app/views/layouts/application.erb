@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Workspace</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Application CSS -->
+    <link rel="stylesheet" type="text/css" href="css/application.css">
+    <!-- Application JS -->
+    <script src="js/application.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <% @flash.each do |type, content| %>
+        <% if content.respond_to?('each') %>
+          <% content.each do |item| %>
+            <%= render 'alert',
+                       type:    type,
+                       content: item %>
+          <% end %>
+        <% end %>
+      <% end if @flash %>
+
+      <%= yield %>
+    </div>
+    <footer>
+      <div class="container">
+        
+      </div>
+    </footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
+  </body>
+</html>
