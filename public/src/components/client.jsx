@@ -2,9 +2,13 @@ import React from 'react';
 
 export default class Client extends React.Component {
 
+    handleClick(user) {
+        alert(`${user.id} - ${user.last_name}`);
+    }
+
     render() {
         let {data} = this.props;
-        return (<div>
+        return (<div onClick={() => this.handleClick(data)}>
                     <div className="photo"><img src={data.photo} /></div>
                     <div className="name">{data.last_name}, {data.first_name}</div>
                     <hr />
