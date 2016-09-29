@@ -1,3 +1,5 @@
+class ClientsController < Sinatra::Base
+
 # Just a sample using static data to response ajax call from react component.
 get '/clients.json' do
   content_type :json
@@ -121,4 +123,5 @@ get '/clients.json' do
       "gender":"F",
       "photo": "https://randomuser.me/api/portraits/thumb/women/12.jpg"
      }].to_json
+  end
 end

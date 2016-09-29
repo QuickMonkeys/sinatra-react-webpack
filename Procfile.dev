@@ -1,2 +1,2 @@
-web: ruby config/app.rb -p $PORT -o $IP
+web: rackup -p $PORT -o $IP
 pack: webpack --progress --color --display-error-details --watch
