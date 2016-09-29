@@ -1,0 +1,1 @@
+web: ruby config/app.rb -p $PORT
