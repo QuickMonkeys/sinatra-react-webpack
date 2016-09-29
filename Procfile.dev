@@ -1,2 +1,2 @@
-web: rackup -p $PORT -o $IP
+web: rackup -p $PORT -o $IP -s Puma
 pack: webpack --progress --color --display-error-details --watch
