@@ -4,7 +4,8 @@
   "description": "Sinatra with react",
   "main": "index.js",
   "scripts": {
-    "devbuild": "webpack --progress --color --display-error-details"
+    "devbuild": "webpack --progress --color --display-error-details",
+    "devstart": "nf start -j Procfile.dev"
   },
   "author": "Carlos Eduardo",
   "license": "ISC",

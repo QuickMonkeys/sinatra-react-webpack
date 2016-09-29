@@ -21569,35 +21569,46 @@
 	            this.setState({ search: text });
 	        }
 	    }, {
-	        key: 'render',
-	        value: function render() {
+	        key: 'prepareRender',
+	        value: function prepareRender() {
 	            var _this2 = this;
 	
 	            var _state = this.state;
 	            var clients = _state.clients;
 	            var search = _state.search;
 	
-	            var filter = function filter(f) {
-	                return _this2.hasString(f.first_name, search) || _this2.hasString(f.last_name, search);
-	            };
+	
 	            var filtered = clients.filter(function (f) {
-	                return filter(f);
+	                return _this2.hasString(f.first_name, search) || _this2.hasString(f.last_name, search);
 	            });
-	            var nothing = function nothing() {
-	                return _react2.default.createElement(
-	                    'div',
-	                    { className: 'nothing' },
-	                    clients.length != 0 ? "Oops... There are no users that match your search criteria" : "Loading..."
-	                );
+	
+	            var content = filtered.length != 0 ? filtered.map(function (d) {
+	                return _react2.default.createElement(ClientHocStyle, { key: d.id, data: d });
+	            }) : _react2.default.createElement(
+	                'div',
+	                { className: 'info' },
+	                clients.length != 0 ? "Oops... There are no users that match your search criteria" : "Loading..."
+	            );
+	            return {
+	                content: content,
+	                searchProps: {
+	                    handleChange: this.handleChange,
+	                    total: clients.length,
+	                    filtered: filtered.length
+	                }
 	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	
+	            var r = this.prepareRender();
 	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_search2.default, { handleChange: this.handleChange, total: clients.length, filtered: filtered.length }),
-	                filtered.length != 0 ? filtered.map(function (d) {
-	                    return _react2.default.createElement(ClientHocStyle, { key: d.id, data: d });
-	                }) : nothing()
+	                _react2.default.createElement(_search2.default, r.searchProps),
+	                r.content
 	            );
 	        }
 	    }]);
@@ -31927,7 +31938,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Search = function Search(props) {
+	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
 	        { style: { marginTop: '14px' } },
@@ -31954,8 +31965,6 @@
 	        _react2.default.createElement('hr', null)
 	    );
 	};
-	
-	exports.default = Search;
 
 /***/ },
 /* 245 */
@@ -32047,7 +32056,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".hocStyle {\n    width: 200px;\n    padding: 12px;\n    margin: 12px 0;\n    background-color: orange;\n    color: white;\n    border: 2px solid silver;\n}\n.hocStyle input {\n    background-color: orange;\n    color: green;\n    border: 2px solid #FFF;\n}\n.card {\n    border: 1px solid #FFF;\n    border-radius: 8px;\n    padding: 8px;\n    margin: 6px;\n    color: #FFF;\n}\n.card div > div:first-child {\n  font-weight: bolder;\n}\n.card hr {\n    margin: 8px 0;\n}\n.card:hover {\n    -webkit-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    -moz-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    cursor: pointer;\n}\n.male {\n    background-color: #536ADF;\n}\n.female {\n    background-color: #AB26CC;\n}\n.photo {\n    padding-right: 6px;\n    display: inline;\n}\n.photo img {\n    border-radius: 10px;\n    border: 2px solid #FFF;\n}\n.check {\n    width: 42px;\n    float:right;\n}\n.name {\n    display: inline;\n    font-size: 16px;\n}\n.email {\n    display: inline-block;\n}\n.nothing {\n    text-align: center;\n    font-weight: bolder;\n    font-size: 18px;\n    color: #FA0;\n}", ""]);
+	exports.push([module.id, ".hocStyle {\n    width: 200px;\n    padding: 12px;\n    margin: 12px 0;\n    background-color: orange;\n    color: white;\n    border: 2px solid silver;\n}\n.hocStyle input {\n    background-color: orange;\n    color: green;\n    border: 2px solid #FFF;\n}\n.card {\n    border: 1px solid #FFF;\n    border-radius: 8px;\n    padding: 8px;\n    margin: 6px;\n    color: #FFF;\n}\n.card div > div:first-child {\n  font-weight: bolder;\n}\n.card hr {\n    margin: 8px 0;\n}\n.card:hover {\n    -webkit-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    -moz-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    cursor: pointer;\n}\n.male {\n    background-color: #536ADF;\n}\n.female {\n    background-color: #AB26CC;\n}\n.photo {\n    padding-right: 6px;\n    display: inline;\n}\n.photo img {\n    border-radius: 10px;\n    border: 2px solid #FFF;\n}\n.check {\n    width: 42px;\n    float:right;\n}\n.name {\n    display: inline;\n    font-size: 16px;\n}\n.email {\n    display: inline-block;\n}\n.info {\n    text-align: center;\n    font-weight: bolder;\n    font-size: 18px;\n    color: #FA0;\n}", ""]);
 	
 	// exports
 

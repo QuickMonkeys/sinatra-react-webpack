@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Search = (props) =>
+export default (props) =>
         <div style={{marginTop: '14px'}}>
             <input 
                 type="text" 
@@ -15,5 +15,3 @@ const Search = (props) =>
             </div>
             <hr />
         </div>
-        
-export default Search;
