@@ -10,14 +10,14 @@ const ClientHocStyle = HocStyle(Client);
 export default class Clients extends React.Component {
     
     // The initial state is defined in the constructor. 
-    // The handleChange bind is also defined in the constructor. 
+    // The best place to bind your event handlers is the constructor.
     constructor() {
         super();
         this.state = {clients: [], search: ''};
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // Once the component is mounted, an ajax call is used to load the data from Sinatra controller.
+    // Once the component is mounted, an ajax call is used to load the data from clients.json action in controller.
     componentDidMount() {
         $.getJSON( "/clients/clients.json", function( result ) {
             this.setState({clients: result});
@@ -46,9 +46,9 @@ export default class Clients extends React.Component {
                                 ? "Oops... There are no users that match your search criteria" 
                                 : "Loading..."}</div>
         
-        // In this example an object is return with two properties:
-        //  - content: That contains the result of clients that will be rendered.
-        //  - searchProps: That contains an object with the properties that are used by the Search component.
+        // This function returns an object with two properties:
+        //  - content: With the clients that will be rendered.
+        //  - searchProps: That contains an object with the properties that will be used by the Search component.
         return {
             content: content,
             searchProps: {

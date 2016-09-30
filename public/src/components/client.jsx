@@ -1,5 +1,5 @@
 import React from 'react';
-// Component responsible to render the client card (in the clients.jsx).
+// Component used to render the client card (see clients.jsx).
 export default class Client extends React.Component {
 
     handleClick(user) {
