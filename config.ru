@@ -5,6 +5,8 @@ require_relative 'app/controllers/clients_controller'
 
 require './config/app'
 
-use ClientsController
+#use ClientsController
+
+map('/clients') { run ClientsController }
 
 run SinatraReact.new

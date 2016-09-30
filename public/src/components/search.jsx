@@ -1,5 +1,7 @@
 import React from 'react';
 
+// In this example, the Search is created as a stateless component, once the state is not necessary.
+// The only action that the component needs to perform is to send the text to the parent component.
 export default (props) =>
         <div style={{marginTop: '14px'}}>
             <input 

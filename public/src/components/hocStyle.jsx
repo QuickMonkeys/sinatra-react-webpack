@@ -1,4 +1,5 @@
 import React from 'react';
+// In this example, the HOC defines which style will be used on the client component
 export default ComposedComponent => class extends React.Component {
     render() {
         let {data} = this.props;

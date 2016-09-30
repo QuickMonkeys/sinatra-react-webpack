@@ -21536,11 +21536,17 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// In this example, the higher order component is used to apply the style in the client card.
+	
+	
+	// The result is a client component wraped by the Style component.
 	var ClientHocStyle = (0, _hocStyle2.default)(_client2.default);
 	
 	var Clients = function (_React$Component) {
 	    _inherits(Clients, _React$Component);
 	
+	    // The initial state is defined in the constructor. 
+	    // The handleChange bind is also defined in the constructor. 
 	    function Clients() {
 	        _classCallCheck(this, Clients);
 	
@@ -21551,13 +21557,19 @@
 	        return _this;
 	    }
 	
+	    // Once the component is mounted, an ajax call is used to load the data from Sinatra controller.
+	
+	
 	    _createClass(Clients, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            $.getJSON("/clients.json", function (result) {
+	            $.getJSON("/clients/clients.json", function (result) {
 	                this.setState({ clients: result });
 	            }.bind(this));
 	        }
+	
+	        // A simple function that checks if exists a text in the name.    
+	
 	    }, {
 	        key: 'hasString',
 	        value: function hasString(name, text) {
@@ -21568,6 +21580,9 @@
 	        value: function handleChange(text) {
 	            this.setState({ search: text });
 	        }
+	
+	        // Function used to prepare the content that will be rendered by the component
+	
 	    }, {
 	        key: 'prepareRender',
 	        value: function prepareRender() {
@@ -21589,6 +21604,10 @@
 	                { className: 'info' },
 	                clients.length != 0 ? "Oops... There are no users that match your search criteria" : "Loading..."
 	            );
+	
+	            // In this example an object is return with two properties:
+	            //  - content: That contains the result of clients that will be rendered.
+	            //  - searchProps: That contains an object with the properties that are used by the Search component.
 	            return {
 	                content: content,
 	                searchProps: {
@@ -31869,6 +31888,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// Component responsible to render the client card (in the clients.jsx).
 	var Client = function (_React$Component) {
 	    _inherits(Client, _React$Component);
 	
@@ -31938,6 +31958,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// In this example, the Search is created as a stateless component, once the state is not necessary.
+	// The only action that the component needs to perform is to send the text to the parent component.
 	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
@@ -31990,6 +32012,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// In this example, the HOC defines which style will be used on the client component
 	exports.default = function (ComposedComponent) {
 	    return function (_React$Component) {
 	        _inherits(_class, _React$Component);
