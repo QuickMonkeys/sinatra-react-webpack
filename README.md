@@ -16,7 +16,7 @@ Foreman is used to start two services:
 
 To get the code:
 
-`git clone https://github.com/QuickMonkeys/sinatra-react.git`
+`git clone https://github.com/QuickMonkeys/sinatra-react-webpack.git`
 
 `cd sinatra-react`
 
