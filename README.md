@@ -2,7 +2,7 @@
 
 ## A simple example to demonstrate how we can use Sinatra with React and Webpack
 
-The data is returning using a an action from sinatra controller to be used by the component.
+The data is returned using an action from sinatra controller to be used by the component.
 
 The transpiler used to generate javascript is Babel.
 
